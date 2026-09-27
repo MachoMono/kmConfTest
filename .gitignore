@@ -1,0 +1,6 @@
+.scratch/
+node_modules/
+data/
+web/dist/
+test-results/
+playwright-report/

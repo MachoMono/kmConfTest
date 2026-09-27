@@ -1,0 +1,56 @@
+{
+  "name": "gitwiki",
+  "version": "1.0.0",
+  "description": "Git-backed enterprise knowledge base: WYSIWYG over Markdown, Obsidian-style links, ontology and GraphRAG.",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22.5"
+  },
+  "scripts": {
+    "build": "node scripts/build.js",
+    "start": "node server/index.js",
+    "dev": "node scripts/build.js && node server/index.js",
+    "seed": "node scripts/seed.js",
+    "test": "npm run build && npm run test:unit && npm run test:api && npm run test:ab && npm run test:coverage && npm run test:e2e",
+    "test:unit": "node --test --test-concurrency=4 'test/unit/*.test.js'",
+    "test:api": "node --test --test-concurrency=4 'test/api/*.test.js'",
+    "test:ab": "node --test 'test/ab/*.test.js'",
+    "test:coverage": "node --test 'test/coverage/*.test.js'",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.128.0",
+    "@mixmark-io/domino": "^2.2.0",
+    "diff": "^9.0.0",
+    "fflate": "^0.8.3",
+    "markdown-it": "^15.0.2",
+    "nodemailer": "^10.0.10",
+    "sanitize-html": "^2.17.7",
+    "turndown": "^7.2.4",
+    "turndown-plugin-gfm": "^1.0.2",
+    "yaml": "^2.9.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
+    "@tiptap/core": "^3.31.3",
+    "@tiptap/extension-image": "^3.31.3",
+    "@tiptap/extension-link": "^3.31.3",
+    "@tiptap/extension-placeholder": "^3.31.3",
+    "@tiptap/extension-table": "^3.31.3",
+    "@tiptap/extension-table-cell": "^3.31.3",
+    "@tiptap/extension-table-header": "^3.31.3",
+    "@tiptap/extension-table-row": "^3.31.3",
+    "@tiptap/extension-task-item": "^3.31.3",
+    "@tiptap/extension-task-list": "^3.31.3",
+    "@tiptap/pm": "^3.31.3",
+    "@tiptap/starter-kit": "^3.31.3",
+    "@tiptap/suggestion": "^3.31.3",
+    "d3-force": "^3.0.0",
+    "esbuild": "^0.28.2",
+    "highlight.js": "^11.12.0",
+    "mermaid": "^12.0.0",
+    "preact": "^10.29.8"
+  }
+}
